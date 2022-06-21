@@ -6,8 +6,15 @@ import 'package:google_fonts/google_fonts.dart';
 import 'app/routes/app_pages.dart';
 
 void main() {
-  runApp(
-    GetMaterialApp(
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Application",
       initialRoute: AppPages.initial,
@@ -15,6 +22,6 @@ void main() {
       theme: ThemeData(
         textTheme: GoogleFonts.poppinsTextTheme(),
       ),
-    ),
-  );
+    );
+  }
 }

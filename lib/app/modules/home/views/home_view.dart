@@ -9,19 +9,6 @@ class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "Rumah Bakso",
-          style: TextStyle(color: Colors.black),
-        ),
-        leading: Icon(
-          Icons.restaurant_outlined,
-          color: Colors.black,
-        ),
-        centerTitle: false,
-        backgroundColor: Colors.white,
-        elevation: 2,
-      ),
       body: Container(
         color: Color.fromARGB(255, 248, 248, 255),
         child: Row(
@@ -43,7 +30,7 @@ class HomeView extends GetView<HomeController> {
                       Text(
                         "Monitoring Meja",
                         style: TextStyle(
-                          fontSize: 18,
+                          fontSize: 28,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -56,21 +43,36 @@ class HomeView extends GetView<HomeController> {
                             100,
                             (index) => Padding(
                               padding: const EdgeInsets.all(8.0),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(20),
-                                child: Container(
-                                  width: 75,
-                                  height: 75,
-                                  color:
-                                      controller.mejaAktif.contains(index + 1)
-                                          ? Colors.green
-                                          : Colors.grey.shade400,
-                                  child: Center(
-                                    child: Text(
-                                      (index + 1).toString(),
-                                      style: TextStyle(
-                                        fontSize: 45,
-                                        color: Colors.white,
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20),
+                                  color: Colors.white,
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.grey.withOpacity(0.5),
+                                      spreadRadius: 2,
+                                      blurRadius: 2,
+                                      offset: Offset(
+                                          0, 0), // changes position of shadow
+                                    ),
+                                  ],
+                                ),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(20),
+                                  child: Container(
+                                    width: 75,
+                                    height: 75,
+                                    color:
+                                        controller.mejaAktif.contains(index + 1)
+                                            ? Color.fromARGB(255, 20, 20, 100)
+                                            : Colors.grey.shade400,
+                                    child: Center(
+                                      child: Text(
+                                        (index + 1).toString(),
+                                        style: TextStyle(
+                                          fontSize: 45,
+                                          color: Colors.white,
+                                        ),
                                       ),
                                     ),
                                   ),

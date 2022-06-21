@@ -34,24 +34,44 @@ class Sidebar extends StatelessWidget {
             () => Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                Row(
+                  children: [
+                    CircleAvatar(),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 16),
+                      child: Text(
+                        "Kasir1",
+                        style: TextStyle(fontSize: 18),
+                      ),
+                    ),
+                  ],
+                ),
+                Divider(height: 32),
                 SidebarMenu(
                   controller: controller,
                   selectedMenu: controller.menuAktif.value == 1
-                      ? Color.fromARGB(255, 211, 255, 212)
+                      ? Color.fromARGB(255, 15, 18, 59)
                       : Colors.white,
                   icon: Icons.brunch_dining_outlined,
                   title: "Makan Ditempat",
+                  selectedTitle: controller.menuAktif.value == 1
+                      ? Colors.white
+                      : Color.fromARGB(255, 15, 18, 59),
                   onTap: () => controller.menuAktif.value = 1,
                 ),
                 SidebarMenu(
                   controller: controller,
                   selectedMenu: controller.menuAktif.value == 2
-                      ? Color.fromARGB(255, 211, 255, 212)
+                      ? Color.fromARGB(255, 15, 18, 59)
                       : Colors.white,
                   icon: Icons.takeout_dining_outlined,
                   title: "Bawa Pulang",
+                  selectedTitle: controller.menuAktif.value == 2
+                      ? Colors.white
+                      : Color.fromARGB(255, 15, 18, 59),
                   onTap: () => controller.menuAktif.value = 2,
-                )
+                ),
+                Divider(height: 32),
               ],
             ),
           ),

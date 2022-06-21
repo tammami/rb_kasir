@@ -9,9 +9,11 @@ class SidebarMenu extends StatelessWidget {
     required this.icon,
     required this.title,
     required this.onTap,
+    required this.selectedTitle,
   }) : super(key: key);
   final HomeController controller;
   final Color selectedMenu;
+  final Color selectedTitle;
   final IconData icon;
   final String title;
   final VoidCallback onTap;
@@ -28,15 +30,15 @@ class SidebarMenu extends StatelessWidget {
             splashColor: Colors.blue.shade200,
             onTap: onTap,
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               child: Ink(
                 child: Row(
                   children: [
-                    Icon(icon),
+                    Icon(icon, color: selectedTitle),
                     SizedBox(width: 8),
                     Text(
                       title,
-                      style: TextStyle(fontSize: 15),
+                      style: TextStyle(fontSize: 15, color: selectedTitle),
                     ),
                   ],
                 ),
